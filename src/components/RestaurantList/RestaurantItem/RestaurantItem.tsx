@@ -1,6 +1,7 @@
 import { css } from 'styled-system/css';
 import { stack, circle } from 'styled-system/patterns';
 import { CATEGORY_ICONS } from '@/assets/images';
+import type { Restaurant } from '@/types';
 import type { KeyboardEvent } from 'react';
 
 const styles = {
@@ -52,26 +53,19 @@ const styles = {
   }),
 };
 
-type RestaurantCategory = '한식' | '중식' | '일식' | '양식' | '아시안' | '기타';
-
 interface RestaurantItemProps {
-  category: RestaurantCategory;
-  title: string;
-  description?: string;
-  onClick: (
-    category: RestaurantCategory,
-    title: string,
-    description?: string,
-  ) => void;
+  restaurant: Restaurant;
+  onClick: (restaurant: Restaurant) => void;
 }
 
 const RestaurantItem = (props: RestaurantItemProps) => {
-  const { category, title, description, onClick } = props;
+  const { restaurant, onClick } = props;
+  const { category, title, description } = restaurant;
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.code === 'Enter' || event.code === 'Space') {
       event.preventDefault();
-      onClick(category, title, description);
+      onClick(restaurant);
     }
   };
 
@@ -80,7 +74,7 @@ const RestaurantItem = (props: RestaurantItemProps) => {
       className={styles.listItem}
       role="button"
       tabIndex={0}
-      onClick={() => onClick(category, title, description)}
+      onClick={() => onClick(restaurant)}
       onKeyDown={handleKeyDown}
     >
       <div className={styles.imageContainer}>
