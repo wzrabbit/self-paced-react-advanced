@@ -1,5 +1,7 @@
+import RestaurantItem from '@/components/RestaurantList/RestaurantItem';
+
 const App = () => {
-  return <p>Hi</p>;
+  return <RestaurantItem category={'한식'} title={'asdf'} />;
 };
 
 export default App;
