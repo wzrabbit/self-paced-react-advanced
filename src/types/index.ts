@@ -1,6 +1,6 @@
 export interface Restaurant {
   category: RestaurantCategory;
-  title: string;
+  name: string;
   description?: string;
 }
 

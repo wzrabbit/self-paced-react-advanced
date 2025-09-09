@@ -35,7 +35,7 @@ const styles = {
     gap: 0,
   }),
 
-  title: css({
+  name: css({
     fontSize: '18px',
     lineHeight: '28px',
     fontWeight: 700,
@@ -60,7 +60,7 @@ interface RestaurantItemProps {
 
 const RestaurantItem = (props: RestaurantItemProps) => {
   const { restaurant, onClick } = props;
-  const { category, title, description } = restaurant;
+  const { category, name, description } = restaurant;
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.code === 'Enter' || event.code === 'Space') {
@@ -85,7 +85,7 @@ const RestaurantItem = (props: RestaurantItemProps) => {
         />
       </div>
       <div className={styles.textContainer}>
-        <h3 className={styles.title}>{title}</h3>
+        <h3 className={styles.name}>{name}</h3>
         <p className={styles.description}>{description}</p>
       </div>
     </li>
