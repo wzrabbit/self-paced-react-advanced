@@ -1,9 +1,13 @@
+import { RESTAURANT_CATEGORIES } from '@/constants';
+
 export interface Restaurant {
   category: RestaurantCategory;
   name: string;
   description?: string;
 }
 
-type RestaurantCategory = '한식' | '중식' | '일식' | '양식' | '아시안' | '기타';
+export type RestaurantCategory = (typeof RESTAURANT_CATEGORIES)[number];
+
+export type RestaurantFilterCategory = RestaurantCategory | '전체';
 
 export type Option = { value: string; label: string };
